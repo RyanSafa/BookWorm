@@ -45,14 +45,24 @@ ul {
   padding: 0;
 }
 
+//movile nav
 nav.menu-btn {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  .secondary-nav {
+    margin-top: auto;
+    margin-bottom: 2em;
+  }
+  .mobile-menu-exit {
+    margin-left: auto;
+    width: 1.5em;
+  }
 }
 
 nav {
   position: fixed;
   z-index: 999;
-  width: 33%;
+  width: 20%;
   right: 0;
   top: 0;
   background: #20272e;
@@ -60,9 +70,8 @@ nav {
   padding: 1em;
 
   ul.primary-nav {
-    margin-top: 5em;
+    margin-top: 2em;
   }
-
   li {
     a {
       color: white;
@@ -82,7 +91,9 @@ nav {
   cursor: pointer;
 }
 
+// Desktop
 @media only screen and (min-width: 768px) {
+  display: block;
   .mobile-menu,
   .mobile-menu-exit {
     display: none;
@@ -110,30 +121,28 @@ nav {
     a {
       color: black;
       font-size: 1em;
-      padding: 0.1em 1em;
+      margin: 0.1em 0.75em;
+      padding: 0;
+    }
+    .underline:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transform-origin: center;
+      transition: transform 0.25s ease-out;
     }
 
+    .underline:hover:after {
+      transform: scaleX(1);
+      transform-origin: center;
+    }
     ul.primary-nav {
       margin: 0;
-      a {
-        &:after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 2px;
-          bottom: 0;
-          left: 0;
-          background-color: var(--primary-color);
-          transform-origin: bottom right;
-          transition: transform 0.15s ease-out;
-        }
-
-        &:hover:after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
-        }
-      }
     }
 
     li.dashboard a {
@@ -148,6 +157,8 @@ nav {
 
       &:hover {
         background: var(--primary-color);
+      }
+      &:hover a {
         color: white;
       }
     }
