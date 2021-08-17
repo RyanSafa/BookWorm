@@ -11,9 +11,10 @@ body {
 }
 
 .navbar {
-  background: white;
+  background: #f2f2f2;
   padding: 1em;
-
+  position: fixed;
+  width: 100%;
   .logo {
     text-decoration: none;
     font-weight: bold;
@@ -36,6 +37,7 @@ body {
 
   .mobile-menu {
     cursor: pointer;
+    margin-right: 2em;
   }
 }
 
@@ -52,7 +54,7 @@ nav.menu-btn {
 nav {
   position: fixed;
   z-index: 999;
-  width: 33%;
+  width: 50%;
   right: 0;
   top: 0;
   background: #20272e;
@@ -60,7 +62,7 @@ nav {
   padding: 1em;
 
   ul.primary-nav {
-    margin-top: 5em;
+    margin-top: 3.55em;
   }
 
   li {
@@ -82,7 +84,8 @@ nav {
 
 .mobile-menu-exit {
   float: right;
-  margin: 0.5em;
+  margin-right: 1.8em;
+  margin-top: 0.3em;
   cursor: pointer;
 }
 
@@ -141,6 +144,7 @@ nav {
       }
     }
     li.register {
+      margin-right: 2em;
       color: var(--primary-color);
       border: 3px solid var(--primary-color);
       font-weight: bold;
