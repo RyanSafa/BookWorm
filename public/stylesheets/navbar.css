@@ -75,6 +75,11 @@ nav li a {
   text-align: right;
 }
 
+nav li a:hover {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
 .mobile-menu-exit {
   float: right;
   margin: 0.5em;
@@ -121,31 +126,32 @@ nav li a {
   .navbar nav ul.primary-nav {
     margin: 0;
   }
-  .navbar nav ul.primary-nav a:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary-color);
-    -webkit-transform-origin: bottom right;
-            transform-origin: bottom right;
-    -webkit-transition: -webkit-transform 0.15s ease-out;
-    transition: -webkit-transform 0.15s ease-out;
-    transition: transform 0.15s ease-out;
-    transition: transform 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  .navbar nav ul.primary-nav a {
+    -webkit-text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+            text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    -webkit-transition: -webkit-text-decoration-color 300ms;
+    transition: -webkit-text-decoration-color 300ms;
+    transition: text-decoration-color 300ms;
+    transition: text-decoration-color 300ms, -webkit-text-decoration-color 300ms;
   }
-  .navbar nav ul.primary-nav a:hover:after {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-    -webkit-transform-origin: bottom left;
-            transform-origin: bottom left;
+  .navbar nav ul.primary-nav a:hover {
+    -webkit-text-decoration-color: var(--primary-color);
+            text-decoration-color: var(--primary-color);
   }
-  .navbar nav li.dashboard a {
-    font-weight: bold;
+  .navbar nav ul.secondary-nav {
+    margin: 0;
+  }
+  .navbar nav ul.secondary-nav a.underline {
+    -webkit-text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+            text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    -webkit-transition: -webkit-text-decoration-color 300ms;
+    transition: -webkit-text-decoration-color 300ms;
+    transition: text-decoration-color 300ms;
+    transition: text-decoration-color 300ms, -webkit-text-decoration-color 300ms;
+  }
+  .navbar nav ul.secondary-nav a.underline:hover {
+    -webkit-text-decoration-color: var(--primary-color);
+            text-decoration-color: var(--primary-color);
   }
   .navbar nav li.register {
     color: var(--primary-color);
@@ -156,7 +162,9 @@ nav li a {
   }
   .navbar nav li.register:hover {
     background: var(--primary-color);
+  }
+  .navbar nav li.register:hover a {
     color: white;
   }
 }
-/*# sourceMappingURL=home.css.map */
+/*# sourceMappingURL=navbar.css.map */
