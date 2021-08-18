@@ -40,7 +40,7 @@ body {
 
 .navbar .mobile-menu {
   cursor: pointer;
-  margin-right: 2em;
+  margin-left: auto;
 }
 
 ul {
@@ -85,8 +85,6 @@ nav li a:hover {
 
 .mobile-menu-exit {
   float: right;
-  margin-right: 1.8em;
-  margin-top: 0.3em;
   cursor: pointer;
 }
 
