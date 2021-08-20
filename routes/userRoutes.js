@@ -14,19 +14,21 @@ router.post('/register', async(req,res) => {
     await user.save();
     res.send('User saved');
 });
-
 router.get('/login', (req,res) => {
     res.render('../views/users/login');
 });
 
-router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=> {
-    console.log(req.session)
-    res.redirect('/');
-});
+router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile' ]}));
+
+router.get('/google/callback', passport.authenticate('google',{
+successRedirect: '/login',
+failreRedirect: '/lol'}))
 
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
+
+
 
 export { router };
