@@ -11,11 +11,12 @@ import passport from 'passport';
 import localStrategy from 'passport-local'
 import { Strategy as GoogleStrategy} from 'passport-google-oauth2';
 import flash from 'express-flash';
+import ApiError from './utils/ApiError.js';
+import apiErrorHandler from './utils/apiErrorHandler.js';
 const app = express();
 const port = 3000;
 const __dirname = path.resolve();
 const db = mongoose.connection;
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine','ejs' );
@@ -37,6 +38,7 @@ app.use(passport.session());
 
 //passport-locale config
 passport.use(new localStrategy(User.authenticate()));
+
 //passport google config
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -53,14 +55,14 @@ passport.use(new GoogleStrategy({
         try{
             let user = await User.findOne({googleId: profile.id})
             if(user){
-                done(null, user)
+                return done(null, user)
             } else{
                 user = await User.create(newUser)
-                done(null,user)
+                return done(null,user)
             }
             
         } catch (err) {
-            done(err, null)
+            return done(new ApiError(err.message), null);
         }
     }
 ));
@@ -77,6 +79,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log("MongoDB Connected!")
 });
+
 app.use(flash());
 app.use((req,res,next) => {
     res.locals.currentUser = req.user;
@@ -84,13 +87,18 @@ app.use((req,res,next) => {
     next();
 })
 
-
-
 app.get('/', (req,res) => {
     res.render('home');
 });
 
 app.use('/', userRoute);
+
+app.all('*', (req,res,next) => {
+    next(new ApiError(404, 'Something went wrong!'));
+
+})
+
+app.use(apiErrorHandler);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
