@@ -166,26 +166,14 @@ input {
     border-radius: 2em;
   }
   .form-item {
-    -webkit-box-flex: 3;
-        -ms-flex-positive: 3;
-            flex-grow: 3;
+    -webkit-box-flex: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
   }
   .form-button {
     border-radius: 2em;
     outline: 0;
     margin-left: auto;
   }
-  .form-item:nth-of-type(3) {
-    position: relative;
-  }
-  .form-item:nth-of-type(3)::after {
-    content: "";
-    position: aboslute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.1);
-  }
 }
-/*# sourceMappingURL=register.css.map */
+/*# sourceMappingURL=login.css.map */
