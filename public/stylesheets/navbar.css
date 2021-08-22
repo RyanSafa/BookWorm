@@ -12,6 +12,7 @@ body {
 .navbar {
   background: #f2f2f2;
   padding: 1em;
+  z-index: 99999;
   position: fixed;
   width: 100%;
 }
@@ -55,7 +56,6 @@ nav.menu-btn {
 
 nav {
   position: fixed;
-  z-index: 999;
   width: 50%;
   right: 0;
   top: 0;

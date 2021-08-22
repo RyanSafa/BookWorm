@@ -1,7 +1,7 @@
 
 <div class="navbar">
     <div class="container">
-        <a class="logo" href="#">Stock<span>Tracker</span></a>
+        <a class="logo" href="/">Stock<span>Tracker</span></a>
 
         <img id="mobile-hamburger" class="mobile-menu" src="assets/menu.svg" alt="Open Navigation">
 
@@ -9,14 +9,20 @@
             <img id="mobile-exit" class="mobile-menu-exit" src="assets/exit.svg" alt="Close Navigation">
             
             <ul class="primary-nav">
+                <% if(currentUser) { %> 
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Stocks</a></li>
                 <li><a href="#">Friends</a></li>
+                <%  } %>
             </ul>
-
+            
             <ul class="secondary-nav">
+                <% if(!currentUser) { %> 
                 <li ><a class="underline"href="/login">Login</a></li>
                 <li class="register"><a href="/register">Register</a></li>
+                <% }  else {  %> 
+                <li class="register"><a href="/logout">Logout</a></li>
+                <% } %>
             </ul>
         </nav>
     </div>

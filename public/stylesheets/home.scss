@@ -9,14 +9,14 @@
   align-items: center;
   text-align: center;
   .text {
-    font-size: 35px;
     span {
       color: rgb(224, 89, 26);
     }
     .title {
-      font-size: 24px;
       display: inline;
       h1 {
+        font-size: 50px;
+
         margin: 0em 0.5em;
       }
       img {
@@ -24,6 +24,7 @@
       }
     }
     h3 {
+      font-size: 24px;
       margin: 0.5em;
     }
   }

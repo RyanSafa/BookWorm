@@ -23,6 +23,8 @@ app.set('view engine','ejs' );
 app.engine('ejs', ejsMate);
 
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/semantic')));
+
 app.use(express.urlencoded({extended: true}));
 app.use(session({
     secret:'123',
@@ -92,7 +94,6 @@ app.get('/', (req,res) => {
 });
 
 app.use('/', userRoute);
-
 app.all('*', (req,res,next) => {
     next(new ApiError(404, 'Something went wrong!'));
 
