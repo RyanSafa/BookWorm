@@ -6,6 +6,7 @@ import ejsMate from 'ejs-mate';
 import session from 'express-session'
 import mongoose from 'mongoose';
 import {router as userRoute}  from './routes/userRoutes.js';
+import {router as bookRoute } from './routes/bookRoutes.js';
 import User from './models/users.js';
 import passport from 'passport';
 import localStrategy from 'passport-local'
@@ -94,6 +95,8 @@ app.get('/', (req,res) => {
 });
 
 app.use('/', userRoute);
+app.use('/books', bookRoute );
+
 app.all('*', (req,res,next) => {
     next(new ApiError(404, 'Something went wrong!'));
 
