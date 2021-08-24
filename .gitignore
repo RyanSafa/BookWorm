@@ -1,4 +1,5 @@
 node_modules
-
+*.scss
+*.map
 *.env
 *.DS_Store
