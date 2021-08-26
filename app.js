@@ -107,9 +107,9 @@ app.get("/", (req, res) => {
 app.use("/", userRoute);
 app.use("/books", bookRoute);
 
-app.all("*", (req, res, next) => {
-  next(new ApiError(404, "Something went wrong!"));
-});
+// app.all("*", (req, res, next) => {
+//   next(new ApiError(404, "Something went wrong!"));
+// });
 
 app.use(apiErrorHandler);
 

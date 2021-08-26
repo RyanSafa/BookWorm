@@ -1,8 +1,4 @@
 body {
-  display: -ms-grid;
-  display: grid;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 /*# sourceMappingURL=search.css.map */

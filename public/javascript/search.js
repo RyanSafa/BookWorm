@@ -2,21 +2,50 @@ const createUrl = (form) => {
   const formData = new FormData(form);
   const search = new URLSearchParams(formData);
   const queryString = search.toString(search);
-  return (url = `${form.action}?${queryString}'`);
+  return (url = `${form.action}?${queryString}`);
 };
-document.body.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const myForm = e.target;
+document.body.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const myForm = event.target;
   const url = createUrl(myForm);
-  const response = await fetch(url, {
-    method: myForm.method,
-    mode: "cors",
-    cache: "no-cache",
-    creditenials: "same-origin",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
+  console.log(url);
+  const response = await fetch(url);
   const bookArray = await response.json();
-  console.log(bookArray);
+  const cards = document.querySelector(".cards");
+  for (const book of bookArray) {
+    console.log(book);
+    const card = document.createElement("div");
+    card.classList.add("card");
+    cards.appendChild(card);
+    const bookImg = document.createElement("img");
+    bookImg.classList.add("card-image");
+    bookImg.src = `${book["thumbnail"]}`;
+    card.appendChild(bookImg);
+    const cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+    card.appendChild(cardContent);
+    const cardTitle = document.createElement("h3");
+    cardTitle.classList.add("card-title");
+    cardContent.appendChild(cardTitle);
+    const description = document.createElement("p");
+    description.classList.add("card-description");
+    cardContent.appendChild(description);
+    cardTitle.innerHTML = `${book["title"]}`;
+    description.innerHTML = `${book["description"]}`;
+    const cardInfo = document.createElement("div");
+    cardInfo.classList.add("card-info");
+    card.appendChild(cardInfo);
+    const category = document.createElement("div");
+    const pageCount = document.createElement("div");
+    const publishedDate = document.createElement("div");
+    category.classList.add("category");
+    pageCount.classList.add("page-count");
+    publishedDate.classList.add("published-date");
+    category.innerHTML = book["categories"].toString();
+    pageCount.innerHTML = book["pageCount"];
+    publishedDate.innerHTML = book["publishedDate"];
+    cardInfo.appendChild(category);
+    cardInfo.appendChild(pageCount);
+    cardInfo.appendChild(publishedDate);
+  }
 });
