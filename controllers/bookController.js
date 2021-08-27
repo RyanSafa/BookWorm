@@ -47,7 +47,6 @@ export const queryBookApi = catchAsyncError(async (req, res) => {
   const url = new URL(
     `https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}&printType=books&langRestrict=en&key=${process.env.GOOGLE_BOOKS_KEY}`
   );
-  console.log(url);
   const response = await fetch(url.href);
   const responseJson = await response.json();
   if (responseJson.items) {

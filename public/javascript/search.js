@@ -21,9 +21,12 @@ document.body.addEventListener("submit", async (event) => {
     bookImg.classList.add("card-image");
     bookImg.src = `${book["thumbnail"]}`;
     card.appendChild(bookImg);
+    const cardText = document.createElement("div");
+    cardText.classList.add("card-text");
+    card.appendChild(cardText);
     const cardContent = document.createElement("div");
     cardContent.classList.add("card-content");
-    card.appendChild(cardContent);
+    cardText.appendChild(cardContent);
     const cardTitle = document.createElement("h3");
     cardTitle.classList.add("card-title");
     cardContent.appendChild(cardTitle);
@@ -34,7 +37,7 @@ document.body.addEventListener("submit", async (event) => {
     description.innerHTML = `${book["description"]}`;
     const cardInfo = document.createElement("div");
     cardInfo.classList.add("card-info");
-    card.appendChild(cardInfo);
+    cardText.appendChild(cardInfo);
     const category = document.createElement("div");
     const pageCount = document.createElement("div");
     const publishedDate = document.createElement("div");
