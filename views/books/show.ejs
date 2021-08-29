@@ -1,0 +1,14 @@
+<% layout('boilerplate') -%>
+<h3>Title: <%= book.title %> </h3>
+<h3>Author: <%= book.author %> </h3>
+<h3>Description: <%= book.description %> </h3>
+<h3>Page Count: <%= book.pageCount %> </h3>
+<h3>Categories: <% for(const category of book.categories) { %> 
+    <%=category%>
+<% } %>
+<h3>Uploaded By: <%=book.uploadedBy.username%></h3>
+<a href="/books/<%=book._id%>/edit"><Button>Edit</Button></a>
+<form method="POST" action="/books/<%=book._id%>?_method=DELETE">
+    <button>Delete</button>
+</form>
+</h3>

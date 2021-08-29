@@ -11,10 +11,15 @@ body {
 }
 
 .navbar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background: #f2f2f2;
   padding: 1em;
   z-index: 99999;
-  position: fixed;
+  height: 60px;
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
   width: 100%;
 }
 

@@ -1,15 +1,17 @@
 body {
-  min-height: 100vh;
-  font-family: "Poppins";
+  background-image: url("https://images.unsplash.com/photo-1526285759904-71d1170ed2ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+}
+
+.container-wrapper {
+  min-height: calc(100vh - 60px);
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: center;
       align-content: center;
   place-items: center;
-  background-image: url("https://images.unsplash.com/photo-1526285759904-71d1170ed2ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top center;
 }
 
 .register-local {
@@ -152,7 +154,8 @@ input {
 }
 
 .register-google:hover {
-  background: rgba(15, 157, 88, 0.7);
+  background: white;
+  color: #0f9d58;
 }
 
 @media only screen and (min-width: 786px) {

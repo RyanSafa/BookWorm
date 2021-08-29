@@ -1,4 +1,4 @@
-import User from "../models/users.js";
+import User from "../models/user.js";
 import passport from "passport";
 import catchAsyncError from "../utils/catchAsyncError.js";
 

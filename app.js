@@ -5,13 +5,14 @@ import path from "path";
 import ejsMate from "ejs-mate";
 import session from "express-session";
 import mongoose from "mongoose";
-import { router as userRoute } from "./routes/userRoutes.js";
-import { router as bookRoute } from "./routes/bookRoutes.js";
-import User from "./models/users.js";
 import passport from "passport";
 import localStrategy from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import flash from "express-flash";
+import methodOverride from "method-override";
+import { router as userRoute } from "./routes/userRoutes.js";
+import { router as bookRoute } from "./routes/bookRoutes.js";
+import User from "./models/user.js";
 import ApiError from "./utils/ApiError.js";
 import apiErrorHandler from "./utils/apiErrorHandler.js";
 
@@ -27,6 +28,8 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.static(path.join(__dirname, "/semantic")));
 
+//method override
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
@@ -107,9 +110,9 @@ app.get("/", (req, res) => {
 app.use("/", userRoute);
 app.use("/books", bookRoute);
 
-// app.all("*", (req, res, next) => {
-//   next(new ApiError(404, "Something went wrong!"));
-// });
+app.all("*", (req, res, next) => {
+  next(new ApiError(404, "Something went wrong!"));
+});
 
 app.use(apiErrorHandler);
 

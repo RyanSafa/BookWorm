@@ -12,11 +12,14 @@ body {
 }
 
 .navbar {
+  box-sizing: border-box;
   background: #f2f2f2;
   padding: 1em;
   z-index: 99999;
+  height: 60px;
 
-  position: fixed;
+  top: 0;
+  position: sticky;
   width: 100%;
   .logo {
     text-decoration: none;

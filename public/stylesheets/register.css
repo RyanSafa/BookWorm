@@ -1,20 +1,29 @@
 body {
-  min-height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1526285759904-71d1170ed2ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  margin: 0;
+  padding: 0;
+}
+
+body .register-wrapper {
+  min-height: calc(100vh - 60px);
   font-family: "Poppins";
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: center;
       align-content: center;
   place-items: center;
-  background-image: url("https://images.unsplash.com/photo-1526285759904-71d1170ed2ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top center;
+}
+
+h1 {
+  margin: 0;
 }
 
 .register-local {
   color: white;
-  margin: 0.5em;
+  margin-bottom: 0.5em;
   font-size: 40px;
 }
 
@@ -26,6 +35,7 @@ input {
 .form {
   position: relative;
   background: white;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,6 +154,8 @@ input {
   font-weight: bold;
   font-size: 14px;
   border-radius: 20px;
+  -ms-grid-column-align: center;
+      justify-self: center;
   border: 0px solid;
   background: #0f9d58;
   padding: 1.25em 2em;
@@ -152,7 +164,8 @@ input {
 }
 
 .register-google:hover {
-  background: rgba(15, 157, 88, 0.7);
+  color: #0f9d58;
+  background: white;
 }
 
 @media only screen and (min-width: 786px) {

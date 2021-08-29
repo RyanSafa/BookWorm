@@ -1,16 +1,18 @@
 <% layout('boilerplate') -%>
 <link rel="stylesheet" href="../../stylesheets/register.css">
-<h1 class="register-local">Register</h1>
-<form class="form" method="POST" action="/register">
-    <div class="form-item">
-        <input type="text" name="username" id="username" class="form-input" placeholder="Username">
-    </div>
-    <div class="form-item">
-        <input type="email" name="email" id="email" class="form-input" placeholder="Email">
-    </div>
-    <div class="form-item">
-        <input type="password" name="password" id="password" class="form-input" placeholder="Password">
-    </div>
-    <button type="submit" class="form-button">Submit!</button>
-</form>
-<a href="/auth/google" class="register-google-link"><button class="register-google">Register  with Google</button></a>
+<div class="register-wrapper"> 
+    <h1 class="register-local">Register</h1>
+    <form class="form" method="POST" action="/register">
+        <div class="form-item">
+            <input type="text" name="username" id="username" class="form-input" placeholder="Username">
+        </div>
+        <div class="form-item">
+            <input type="email" name="email" id="email" class="form-input" placeholder="Email">
+        </div>
+        <div class="form-item">
+            <input type="password" name="password" id="password" class="form-input" placeholder="Password">
+        </div>
+        <button type="submit" class="form-button">Submit!</button>
+    </form>
+    <a href="/auth/google" class="register-google-link"><button class="register-google">Register  with Google</button></a>
+</div>

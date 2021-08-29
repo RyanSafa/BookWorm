@@ -1,0 +1,14 @@
+<% layout('boilerplate') -%>
+<form method="POST" action="/books/<%=book._id%>?_method=PATCH">
+    <label for="title">Title</label>
+    <input type="text" name="book[title]" id="title" value="<%=book.title%>"">
+    <label for="author">Author</label>
+    <input type="text" name="book[author]" id="author" value="<%=book.author%>"">
+    <label for="description">Description</label>
+    <textarea name="book[description]" id="description" cols="30" rows="10"> <%=book.description%> </textarea>
+    <label for="pageCount">Page Count</label>
+    <input type="number" name="book[pageCount]" id="pageCount" value="<%=book.pageCount%>">
+    <label for="categories">Categories</label>
+    <input type="text" name="book[categories]" id="categories" value="<%=book.categories[0]%>">
+    <button type="submit">Edit book</button>
+</form>
