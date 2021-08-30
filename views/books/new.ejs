@@ -1,12 +1,14 @@
 <% layout('boilerplate') -%>
 <h1>Upload a new Book</h1>
-<form method="POST" action="/books">
+<form method="POST" action="/books" enctype="multipart/form-data">
     <label for="title">Title</label>
     <input type="text" name="book[title]" id="title">
     <label for="author">Author</label>
     <input type="text" name="book[author]" id="author">
     <label for="description">Description</label>
     <textarea name="book[description]" id="description" cols="30" rows="10"></textarea>
+    <label for="image">Image</label>
+    <input name="image" id="image" type="file">
     <label for="pageCount">Page Count</label>
     <input type="number" name="book[pageCount]" id="pageCount">
     <label for="categories">Categories</label>

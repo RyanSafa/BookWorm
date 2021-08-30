@@ -14,7 +14,15 @@ router
   .get(loggedIn, renderRegisterForm)
   .post(loggedIn, register);
 
-router.get("/login", loggedIn, rednerLoginForm);
+router
+  .route("/login")
+  .get(loggedIn, rednerLoginForm)
+  .post(
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+    })
+  );
 
 router.get(
   "/auth/google",

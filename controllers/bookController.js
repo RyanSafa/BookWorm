@@ -1,15 +1,22 @@
 import catchAsyncError from "../utils/catchAsyncError.js";
+import { default as ApiError } from "../utils/ApiError.js";
 import { default as Book } from "../models/book.js";
+import { formatBufferTo64 } from "../utils/multer.js";
+import { uploader } from "../utils/cloudinaryConfig.js";
 export const renderNewBookForm = (req, res) => {
   res.render("books/new");
 };
 
 export const createNewBook = catchAsyncError(async (req, res, next) => {
+  const file = formatBufferTo64(req.file);
+  const result = await uploader.upload(file.content, { folder: "BookWorm/" });
+  const cloudinaryImage = result.url;
   const { book } = req.body;
   const newBook = new Book(book);
   newBook.uploadedBy = req.user._id;
+  newBook.image = cloudinaryImage;
   await newBook.save();
-  res.redirect(`/books/${newBook._id}`);
+  return res.redirect(`/books/${newBook._id}`);
 });
 
 export const indexPage = catchAsyncError(async (req, res, next) => {

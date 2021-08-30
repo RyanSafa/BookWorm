@@ -7,6 +7,7 @@
     <%=category%>
 <% } %>
 <h3>Uploaded By: <%=book.uploadedBy.username%></h3>
+<img src="<%=book.image%>" alt="">
 <a href="/books/<%=book._id%>/edit"><Button>Edit</Button></a>
 <form method="POST" action="/books/<%=book._id%>?_method=DELETE">
     <button>Delete</button>

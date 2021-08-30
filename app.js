@@ -15,6 +15,7 @@ import { router as bookRoute } from "./routes/bookRoutes.js";
 import User from "./models/user.js";
 import ApiError from "./utils/ApiError.js";
 import apiErrorHandler from "./utils/apiErrorHandler.js";
+import { cloudinaryConfig } from "./utils/cloudinaryConfig.js";
 
 const app = express();
 const port = 3000;
@@ -27,6 +28,7 @@ app.engine("ejs", ejsMate);
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.static(path.join(__dirname, "/semantic")));
+app.use("*", cloudinaryConfig);
 
 //method override
 app.use(methodOverride("_method"));
