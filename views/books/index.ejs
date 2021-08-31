@@ -1,15 +1,24 @@
 <% layout('boilerplate') -%>
-<h1>All Books</h1>
-<% for (let  book of books) { %>
-    <div class="books">
-        <h3>Title: <%= book.title %> </h3>
-        <h3>Author: <%= book.author %> </h3>
-        <h3>Description: <%= book.description %> </h3>
-        <h3>Page Count: <%= book.pageCount %> </h3>
-        <h3>Categories: <% for(const category of book.categories) { %> 
-            <%=category%>
-        <% } %>
-        </h3>
-        <a href="/books/<%=book._id%>"<button>Go to Book</button></a>
+<link rel="stylesheet" href="../../stylesheets/bookIndex.css">  
+<div class="main"> 
+    <div class="page-title">
+        <h1>All Books!</h1>
     </div>
-<% } %>
+    <div class="books">
+        <% for (let  book of books) { %>
+            <div class="book">
+                <div class="image-wrapper">
+                    <img class="book-image"src="<%=book.image%>" alt="">
+                </div>
+                <div class="text-wrapper">
+                    <div class="primary-info"> 
+                        <h2 class="book-title">Title: <%= book.title %> </h2>
+                        <h2 class="author">Author: <%= book.author %> </h2>
+                        <p  class="description">Description: <%= book.description %> </p>
+                    </div>
+                </div>
+                <a class="book-link" href="/books/<%=book._id%>"<button class="book-button">Go to Book</button></a>
+            </div>
+        <% } %>
+    </div>
+</div>
