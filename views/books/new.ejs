@@ -1,6 +1,6 @@
 <% layout('boilerplate') -%>
-<link rel="stylesheet" href="../../stylesheets/newBook.css">  
-<h1 class="page-title">Upload a New Book</h1>
+<link rel="stylesheet" href="../../stylesheets/newBook.css">
+ <h1 class="page-title">Upload a New Book</h1>
     <form class="new-book" method="POST" action="/books" enctype="multipart/form-data">
         <label for="title">Title</label>
         <input type="text" name="book[title]" id="title">
@@ -8,12 +8,10 @@
         <input type="text" name="book[author]" id="author">
         <label for="description">Description</label>
         <textarea name="book[description]" id="description" cols="30" rows="10"></textarea>
-        <label for="image">Image</label>
         <input name="image" id="image" type="file">
-        <textarea name="book[description]" id="description" cols="30" rows="10"></textarea>
         <label for="pageCount">Page Count</label>
         <input type="number" name="book[pageCount]" id="pageCount">
         <label for="categories">Categories</label>
         <input type="text" name="book[categories]" id="categories">
-        <button type="submit">Create new book</button>
+        <button type="submit">Submit</button>
     </form>
