@@ -25,7 +25,8 @@ const bookSchema = new Schema({
     type: Number,
   },
   categories: {
-    type: Array,
+    type: String,
+    enum: ["Nonfiction", "Fantasy", "Biogrophies", "Other","Short Story", "Thriller", "Science Fiction", "Comedy", "Romance", "Mystery", "Classic", "Horror", "Historical Fiction","Young Adult Fiction"]
     required: true,
   },
   uploadedBy: {

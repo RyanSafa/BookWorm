@@ -1,6 +1,8 @@
 <% layout('boilerplate') -%>
 <link rel="stylesheet" href="../../stylesheets/newBook.css">
  <h1 class="page-title">Edit Book</h1>
+  <div class="form-wrapper"> 
+
     <form class="new-book" method="POST" aaction="/books/<%=book._id%>?_method=PATCH" enctype="multipart/form-data">
         <label for="title" >Title</label>
         <input type="text" name="book[title]" id="title" value="<%=book.title%>">
@@ -15,9 +17,7 @@
         <input type="text" name="book[categories]" id="categories">
         <button type="submit">Submit</button>
     </form>
-
-
-
+</div>
 
 
 
