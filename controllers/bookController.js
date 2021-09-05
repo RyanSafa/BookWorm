@@ -15,6 +15,7 @@ export const createNewBook = catchAsyncError(async (req, res, next) => {
     width: 800,
     crop: "scale",
   });
+  console.log(req.body);
   const { book } = req.body;
   const newBook = new Book(book);
   newBook.uploadedBy = req.user._id;

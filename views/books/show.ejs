@@ -3,8 +3,12 @@
 <h3>Author: <%= book.author %> </h3>
 <h3>Description: <%= book.description %> </h3>
 <h3>Page Count: <%= book.pageCount %> </h3>
-<h3>Categories: <% for(const category of book.categories) { %> 
-    <%=category%>
+<h3>Categories: <% for(const [index,category] of book.categories.entries()) { %> 
+    <% if(index != book.categories.length-1){ %>
+     <%=category%>, 
+    <% } else { %>
+     <%=category%> 
+    <% } %>
 <% } %>
 <h3>Uploaded By: <%=book.uploadedBy.username%></h3>
 <img src="<%=book.image%>" alt="">

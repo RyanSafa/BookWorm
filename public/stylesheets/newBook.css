@@ -105,5 +105,10 @@ form button:hover {
 
 input[name="image"] {
   margin-top: 1em;
+  font-family: "Poppins", "sans-sarif";
+}
+
+option {
+  font-family: "Poppins", "sasns-sarif";
 }
 /*# sourceMappingURL=newBook.css.map */
