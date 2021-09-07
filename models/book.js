@@ -23,9 +23,11 @@ const bookSchema = new Schema({
   },
   pageCount: {
     type: Number,
+    required: true,
   },
   categories: {
     type: [String],
+    required: true,
     enum: [
       "Nonfiction",
       "Fantasy",
@@ -42,7 +44,6 @@ const bookSchema = new Schema({
       "Historical Fiction",
       "Young Adult Fiction",
     ],
-    required: true,
   },
   uploadedBy: {
     type: Schema.Types.ObjectId,

@@ -1,19 +1,33 @@
 <% layout('boilerplate') -%>
-<h3>Title: <%= book.title %> </h3>
-<h3>Author: <%= book.author %> </h3>
-<h3>Description: <%= book.description %> </h3>
-<h3>Page Count: <%= book.pageCount %> </h3>
-<h3>Categories: <% for(const [index,category] of book.categories.entries()) { %> 
-    <% if(index != book.categories.length-1){ %>
-     <%=category%>, 
-    <% } else { %>
-     <%=category%> 
-    <% } %>
-<% } %>
-<h3>Uploaded By: <%=book.uploadedBy.username%></h3>
-<img src="<%=book.image%>" alt="">
-<a href="/books/<%=book._id%>/edit"><Button>Edit</Button></a>
-<form method="POST" action="/books/<%=book._id%>?_method=DELETE">
-    <button>Delete</button>
-</form>
-</h3>
+<link rel="stylesheet" type="text/css" href="/stylesheets/showBook.css">
+
+<div class="book-container"> 
+    <div class="book"> 
+        <!-- <div class="img-wrapper"> 
+        <img style="position: inline-block" src="<%=book.image%>" alt="">
+        </div>
+        <div class="text">  -->
+        <h3>Title: <%= book.title %> </h3>
+        <h3>Author: <%= book.author %> </h3>
+        <h3>Description: <%= book.description %> </h3>
+        <h3>Page Count: <%= book.pageCount %> </h3>
+        <h3>Categories: <% for(const [index,category] of book.categories.entries()) { %> 
+            <% if(index != book.categories.length-1){ %>
+            <%=category%>, 
+            <% } else { %>
+            <%=category%> 
+            <% } %>
+        <% } %>
+        <h3>Uploaded By: <%=book.uploadedBy.username%></h3>
+        </div>
+
+        <a class="edit" href="/books/<%=book._id%>/edit"><Button>Edit</Button></a>
+        <form method="POST" action="/books/<%=book._id%>?_method=DELETE">
+            <button class= "delete" >Delete</button>
+        </form>
+        </h3>
+    </div>
+    <div class="reviews">
+
+    </div>
+</div>

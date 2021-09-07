@@ -18,6 +18,13 @@
                 <h2 class="book-title"> <%= book.title %> </h2>
                 <h2 class="author"> <i> by <%= book.author %>  </i></h2>
                 <p  class="description"><%= book.description %> </p>
+                <h4 class="categories">  <span> Categories</span>: <% for(const [index,category] of book.categories.entries()) { %> 
+                     <% if(index != book.categories.length-1){ %>
+                        <%=category%>, 
+                    <% } else { %>
+                         <%=category%> 
+                 <% } %>
+                <% } %></h4>
             </div>
             </a>
         <% } %>

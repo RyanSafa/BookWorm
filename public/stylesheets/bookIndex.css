@@ -180,4 +180,20 @@ body .books .book .description {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+body .books .book .categories {
+  font-size: 14px;
+  font-weight: normal;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1.2rem;
+  color: #423d3d;
+}
+
+body .books .book .categories span {
+  font-weight: bold;
+}
 /*# sourceMappingURL=bookIndex.css.map */
